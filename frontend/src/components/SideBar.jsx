@@ -20,9 +20,9 @@ const SideBar = () => {
             <SiAlpinedotjs />
           </h1>
 
-          <div className="flex flex-col ml-5 gap-3">
+          <div className="flex flex-col ml-5 mr-5 gap-3 ">
             <div>
-              <button className="SideBarButton flex flex-row text-start">
+              <button className="SideBarButton flex flex-row text-lg p-1 dark:hover:bg-gray-700 rounded-lg w-full ">
                 <Link to={"/DashBoard"}>
                   <div className="flex w-full justify-start items-center gap-2 mt-1">
                     <AiFillDashboard />
@@ -33,7 +33,7 @@ const SideBar = () => {
             </div>
 
             <div>
-              <button className="SideBarButton flex flex-row">
+              <button className="SideBarButton flex flex-row text-lg p-1 dark:hover:bg-gray-700 rounded-lg w-full ">
                 <Link to={"/Stock"}>
                   <div className="flex justify-start items-center gap-2">
                     <GiCardboardBoxClosed />
@@ -44,7 +44,7 @@ const SideBar = () => {
             </div>
 
             <div>
-              <button className="SideBarButton flex flex-row">
+              <button className="SideBarButton flex flex-row text-lg p-1 dark:hover:bg-gray-700 rounded-lg w-full">
                 <div className="flex justify-start items-center gap-2">
                   <IoBookSharp />
                   Histórico
