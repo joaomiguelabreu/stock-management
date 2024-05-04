@@ -8,6 +8,7 @@ import SideBar from "./components/SideBar";
 import NavBar from "./components/NavBar";
 import Stock from "./Pages/Stock";
 import DashBoard from "./Pages/DashBoard";
+import "./input.css";
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
       <div>
         <NavBar />
         <Routes>
-          <Route path="/" Component={DashBoard} />
+          <Route path="/DashBoard" Component={DashBoard} />
           <Route path="/Stock" Component={Stock} />
         </Routes>
       </div>
