@@ -5,6 +5,8 @@ const dotenv = require("dotenv");
 const app = express();
 dotenv.config();
 
+//API 
+
 //OBTER O NOSSO SERVER API
 app.get("/", (req, res) => {
   res.send("API is running");
@@ -23,6 +25,8 @@ app.get("/api/notes/:id", (req, res) => {
   res.send(note);
 });
 
-const PORT = process.env.PORT || 5555;
 
+
+//CONNECTION TO THE SERVER
+const PORT = process.env.PORT || 5555;
 app.listen(PORT, console.log(`Server started on PORT ${PORT}`));
