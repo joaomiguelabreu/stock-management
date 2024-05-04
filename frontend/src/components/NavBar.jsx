@@ -1,5 +1,5 @@
 import React from 'react'
-import DropDown from './Dropdown';
+import DropDown from './global/Dropdown';
 
 const NavBar = () => {
 
