@@ -6,16 +6,22 @@ import { AiFillDashboard } from "react-icons/ai";
 import { GiCardboardBoxClosed } from "react-icons/gi";
 import { IoBookSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { IoIosLogOut } from "react-icons/io";
 
 const SideBar = () => {
   return (
     <div className="w-72 bg-gray-800 text-gray-300 ">
-      <div className="flex flex-col ml-5 mr-5 justify-between ">
+      <div className="flex flex-col ml-5 mr-5 justify-between">
         <DropDown
           buttonContent={
-            <div className="flex flex-row items-center gap-4">
-              <div>Nome</div>
+            <div className="flex flex-row items-center gap-1 mt-3 mb-3">
               <div className="bg-blue-400 rounded-full h-10 w-10"></div>
+              <div>Nome</div>
+              <div>
+                <div className="text-2xl">
+                  <IoIosLogOut />
+                </div>
+              </div>
             </div>
           }
           dropdownContent={
