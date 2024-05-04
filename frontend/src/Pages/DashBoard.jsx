@@ -1,8 +1,17 @@
 import React from 'react'
+import WhiteContainer from '../components/global/WhiteContainer'
 
 const DashBoard = () => {
   return (
-    <div className='bg-purple-400'>DashBoard</div>
+    <div className='flex flex-col bg-purple-400 h-screen'>
+      <div className='flex justify-center'>
+        <WhiteContainer
+          info={
+            <div>"gsrgseges"</div>
+          }
+        />
+      </div>
+    </div>
   )
 }
 

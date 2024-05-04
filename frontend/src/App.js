@@ -1,20 +1,23 @@
-import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import SideBar from './components/SideBar';
-import NavBar from './components/NavBar';
-import Stock from './Pages/Stock';
-import DashBoard from './Pages/DashBoard';
-import './input.css';
+import React from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import SideBar from "./components/SideBar";
+import NavBar from "./components/NavBar";
+import Stock from "./Pages/Stock";
+import DashBoard from "./Pages/DashBoard";
+import "./input.css";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="flex">
-        <SideBar />
-        <div className="flex flex-col ml-64 w-full">
+      <div className="grid grid-cols-6 grid-rows-11">
+        <div className="row-span-11 bg-blue-500">
+          <SideBar />
+        </div>
+        <div className="col-span-5 bg-red-500">
           <NavBar />
+        </div>
+        <div className="col-span-5 row-span-10 col-start-2 row-start-2 bg-green-500">
           <Routes>
-            {/* Make sure the paths match the actual paths of your components */}
             <Route path="/Dashboard" element={<DashBoard />} />
             <Route path="/Stock" element={<Stock />} />
           </Routes>
