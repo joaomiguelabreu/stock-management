@@ -10,11 +10,11 @@ const App = () => {
     <BrowserRouter>
       <div className="flex flex-row h-full">
         <SideBar />
-      <div className="w-screen h-screen">
-        <Routes>
-          <Route path="/Dashboard" element={<DashBoard />} />
-          <Route path="/Stock" element={<Stock />} />
-        </Routes>
+        <div className="w-screen h-screen">
+          <Routes>
+            <Route path="/Dashboard" element={<DashBoard />} />
+            <Route path="/Stock" element={<Stock />} />
+          </Routes>
         </div>
       </div>
     </BrowserRouter>

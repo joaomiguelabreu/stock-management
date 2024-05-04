@@ -1,11 +1,22 @@
 const express = require("express");
 const notes = require("./data/notes");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 const app = express();
 dotenv.config();
 
-//API 
+
+//CORS________________________________________________ 
+
+app.use(cors({
+  origin:'http://localhost:3000',
+  // origin:'http://localhost:5173',
+  methods:['GET', 'POST', 'DELETE','PUT'],
+  credentials:true
+}));
+
+//API________________________________________________ 
 
 //OBTER O NOSSO SERVER API
 app.get("/", (req, res) => {
@@ -27,6 +38,6 @@ app.get("/api/notes/:id", (req, res) => {
 
 
 
-//CONNECTION TO THE SERVER
+//CONNECTION TO THE SERVER______________________________
 const PORT = process.env.PORT || 5555;
 app.listen(PORT, console.log(`Server started on PORT ${PORT}`));
