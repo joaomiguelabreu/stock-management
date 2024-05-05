@@ -7,7 +7,7 @@ import { IoBookSharp } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosLogOut } from "react-icons/io";
 
-const SideBar = () => {
+const SideBar = ({ userName }) => {
   const navigate = useNavigate();
 
   return (
@@ -15,7 +15,7 @@ const SideBar = () => {
       <div className="flex flex-col ml-5 mr-5 justify-between">
         <div className="flex flex-row items-center gap-1 mt-3 mb-3">
           <div className="bg-blue-400 rounded-full h-10 w-10"></div>
-          <div>Nome</div>
+          <div>{userName}</div>
           <div
             onClick={() => {
               localStorage.removeItem("userInfo");

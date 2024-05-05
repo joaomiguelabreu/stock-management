@@ -1,20 +1,22 @@
 import React from "react";
 import WhiteContainer from "../components/global/WhiteContainer";
-import { useEffect } from "react";
+import SideBar from "../components/SideBar";
+import { useUser } from "../userContext";
 
-const DashBoard = ({ css }) => {
-  // useEffect(() => {
-  //   const userInfo = localStorage.getItem("userInfo");
+const DashBoard = () => {
 
-  //   if (userInfo) {
-  //     history.push("/Dashboard");
-  //   }
-  // }, [history]);
-
+  const { token } = useUser();
+  const userInfo = token ? JSON.parse(token) : null;
+  const userName = userInfo ? userInfo.name : "Nome";
+  console.log(userName)
+  
   return (
-    <div className="flex flex-col bg-purple-400 h-screen">
-      <div className="flex justify-center">
-        <WhiteContainer info={<div>"gsrgseges"</div>} />
+    <div className="flex flex-row h-full">
+      <SideBar userName={userName}/>
+      <div className="flex flex-col bg-purple-400 h-screen w-screen">
+        <div className="flex justify-center">
+          <WhiteContainer info={<div>"gsrgseges"</div>} />
+        </div>
       </div>
     </div>
   );
