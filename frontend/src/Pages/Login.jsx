@@ -7,19 +7,19 @@ const Login = () => {
   const [error, seterror] = useState(false);
   const [loading, setloading] = useState(false);
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
 
     try {
       const config = {
         headers: {
-          "Content-type":"application/json"
-        }
-      }
+          "Content-type": "application/json",
+        },
+      };
 
-      setloading(true)
+      setloading(true);
 
-      const {data}= await axios.post(
+      const { data } = await axios.post(
         "/users/login",
         {
           email,
@@ -27,8 +27,11 @@ const Login = () => {
         },
         config
       );
+
+      setloading(false);
     } catch (error) {
-      
+      setloading(false);
+      console.error("Error:", error.message);
     }
   };
 
