@@ -8,11 +8,15 @@ const app = express();
 dotenv.config();
 connectDB();
 
+app.use(express.json());
+
+const userRoutes = require ("./routes/userRoutes")
+
 //CORS________________________________________________
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin:'http://localhost:3000',
     // origin:'http://localhost:5173',
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
@@ -20,6 +24,11 @@ app.use(
 );
 
 //API________________________________________________
+
+//User API
+app.post("/api/users", userRoutes);
+
+
 
 //OBTER O NOSSO SERVER API
 app.get("/", (req, res) => {

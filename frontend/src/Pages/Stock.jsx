@@ -7,8 +7,11 @@ const Stock = () => {
   const fetchStock = async () => {
     const { data } = await axios.get("http://localhost:5555/api/notes");
     setStockData(data);
+    
   };
 
+  console.log(stockData);
+  
   useEffect(() => {
     fetchStock();
   }, []);
