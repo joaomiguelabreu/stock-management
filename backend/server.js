@@ -19,26 +19,16 @@ app.use(
     origin:'http://localhost:3000',
     // origin:'http://localhost:5173',
     methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true,
   })
 );
 
 //API________________________________________________
 
 //User API
-app.post("/api/users", userRoutes);
+app.use("/users", userRoutes);
 
 
 
-//OBTER O NOSSO SERVER API
-app.get("/", (req, res) => {
-  res.send("API is running");
-});
-
-//OBTER TODOS OS JSON DO DATA NOTES
-app.get("/api/notes", (req, res) => {
-  res.json(notes);
-});
 
 //CONNECTION TO THE SERVER______________________________
 const PORT = process.env.PORT || 5555;
