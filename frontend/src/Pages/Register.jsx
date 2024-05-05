@@ -18,8 +18,19 @@ const Register = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
+    const errors = [];
+
     if (password !== confirmPassword) {
-      setMessage("Passwords do not match");
+      errors.push("Passwords do not match");
+    }
+    if (password.length < 6) {
+      errors.push('A senha deve ter pelo menos 6 caracteres.');
+    }
+    if (!/[A-Z]/.test(password)) {
+      errors.push('A senha deve conter pelo menos uma letra maiúscula.');
+    }
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      errors.push('A senha deve conter pelo menos um símbolo.');
     } else {
       setMessage(null);
       try {
@@ -48,6 +59,7 @@ const Register = () => {
         setError(error.response.data.message);
       }
     }
+    setMessage(errors);
   };
 
   return (
@@ -127,11 +139,11 @@ const Register = () => {
           </div>
         )}
 
-        {message && (
-          <div className="error-message text-red-500 mb-3 text-center w-48 items-center">
-            {message}
+        {message && message.map((msg, index) => (
+          <div key={index} className="error-message text-red-500 mb-3 text-center w-48 items-center">
+            {msg}
           </div>
-        )}
+        ))}
 
         <div class="flex items-start mb-5"></div>
         <button
