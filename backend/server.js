@@ -9,13 +9,14 @@ connectDB();
 
 app.use(express.json());
 
-const userRoutes = require ("./routes/userRoutes")
+const userRoutes = require("./routes/userRoutes");
+const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 
 //CORS________________________________________________
 
 app.use(
   cors({
-    origin:'http://localhost:3000',
+    origin: "http://localhost:3000",
     // origin:'http://localhost:5173',
     methods: ["GET", "POST", "DELETE", "PUT"],
   })
@@ -26,8 +27,9 @@ app.use(
 //User API
 app.use("/users", userRoutes);
 
-
-
+//Midlleware
+app.use(notFound);
+app.use(errorHandler);
 
 //CONNECTION TO THE SERVER______________________________
 const PORT = process.env.PORT || 5555;
