@@ -5,10 +5,10 @@ import { useUser } from "../userContext";
 
 const DashBoard = () => {
 
-  const { token } = useUser();
-  const userInfo = token ? JSON.parse(token) : null;
+  const { user } = useUser();
+  const userInfo = user ? JSON.parse(user) : null;
   const userName = userInfo ? userInfo.name : "Nome";
-  console.log(userName)
+  // console.log(userName)
   
   return (
     <div className="flex flex-row h-full">

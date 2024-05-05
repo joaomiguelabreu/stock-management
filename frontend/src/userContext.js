@@ -1,15 +1,19 @@
-// UserContext.js
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const UserContext = createContext();
 
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("userInfo"));
+  const [user, setUser] = useState(localStorage.getItem("userInfo"));
+
+  useEffect(() => {
+    const storedUserInfo = localStorage.getItem("userInfo");
+    setUser(storedUserInfo);
+  }, []); // Run once on component mount to sync with localStorage
 
   return (
-    <UserContext.Provider value={{ token, setToken }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );
