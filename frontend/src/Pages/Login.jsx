@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
+  const [error, seterror] = useState(false);
+  const [loading, setloading] = useState(false);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    try {
+      const config = {
+        headers: {
+          "Content-type":"application/json"
+        }
+      }
+
+      setloading(true)
+
+      const {data}=await axios.post('/users/login',
+        
+      ){
+        
+email,
+        password,
+        },config}
+
+      setloading(false)
+    } catch (error) {
+      
+    }
+  };
+
   return (
     <div>
-      <form class="max-w-sm mx-auto">
+      <div>LOGIN</div>
+      <form onSubmit={submitHandler} class="max-w-sm mx-auto">
         <div class="mb-5">
           <label
             for="email"
@@ -14,7 +46,9 @@ const Login = () => {
           <input
             type="email"
             id="email"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="name@flowbite.com"
             required
           />
@@ -29,7 +63,9 @@ const Login = () => {
           <input
             type="password"
             id="password"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            value={password}
+            onChange={(e) => setpassword(e.target.value)}
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
           />
         </div>
