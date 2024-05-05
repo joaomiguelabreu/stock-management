@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { json } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -28,10 +29,13 @@ const Login = () => {
         config
       );
 
+      //ALTERAR
+      console.log(data);
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      //------------------------------
       setloading(false);
     } catch (error) {
-      setloading(false);
-      console.error("Error:", error.message);
+      seterror(error.response.data.message);
     }
   };
 
