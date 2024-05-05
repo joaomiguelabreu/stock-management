@@ -6,10 +6,11 @@ import DashBoard from "./Pages/DashBoard";
 import Login from "./Pages/Login"
 import Register from "./Pages/Login"
 import "./input.css";
-import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3000';
-axios.defaults.withCredentials = true;
+// import axios from 'axios';
+
+// axios.defaults.baseURL = 'http://localhost:3000';
+// axios.defaults.withCredentials = true;
 
 const App = () => {
   return (
