@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,15 +19,14 @@ const Login = () => {
 
       setloading(true)
 
-      const {data}=await axios.post('/users/login',
-        
-      ){
-        
-email,
-        password,
-        },config}
-
-      setloading(false)
+      const {data}= await axios.post(
+        "/users/login",
+        {
+          email,
+          password,
+        },
+        config
+      );
     } catch (error) {
       
     }
